@@ -1,4 +1,4 @@
-package pl.karbar.smskompresor.util;
+package pl.karbar.smskompresor.SmsService;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

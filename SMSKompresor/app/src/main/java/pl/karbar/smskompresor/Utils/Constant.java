@@ -1,4 +1,4 @@
-package pl.karbar.smskompresor.util;
+package pl.karbar.smskompresor.Utils;
 
 /**
  * Created by Karol on 2015-01-02.

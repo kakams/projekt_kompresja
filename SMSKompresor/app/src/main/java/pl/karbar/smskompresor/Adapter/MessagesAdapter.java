@@ -1,4 +1,4 @@
-package pl.karbar.smskompresor.util;
+package pl.karbar.smskompresor.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,11 +12,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import pl.karbar.smskompresor.R;
+import pl.karbar.smskompresor.Utils.Constant;
 
 /**
- * Created by Karol on 2015-01-02.
+ * Created by Karol on 2015-01-03.
  */
-public class ContactAdapter extends BaseAdapter {
+public class MessagesAdapter extends BaseAdapter {
 
     private Activity activity;
     public ArrayList<HashMap<String, String>> data;
@@ -25,7 +26,7 @@ public class ContactAdapter extends BaseAdapter {
     public View vi;
 
 
-    public ContactAdapter(Activity a, ArrayList<HashMap<String, String>> d, View list) {
+    public MessagesAdapter(Activity a, ArrayList<HashMap<String, String>> d, View list) {
         activity = a;
         data=d;
         inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -57,20 +58,22 @@ public class ContactAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-            HashMap<String, String> map = new HashMap<String, String>();
-            vi=convertView;
-            if(convertView==null) {
-                vi = inflater.inflate(R.layout.line_contact, null);
-            }
-            TextView title = (TextView)vi.findViewById(R.id.contactName); // title
-            View listview = getListView();
+        HashMap<String, String> map = new HashMap<String, String>();
+        vi=convertView;
+        if(convertView==null) {
+            vi = inflater.inflate(R.layout.line_single_message, null);
+        }
+        TextView author = (TextView)vi.findViewById(R.id.messageAuthor);
+        TextView message = (TextView)vi.findViewById(R.id.messageText);
+        View listview = getListView();
 
 
-            map = data.get(position);
-            title.setText(map.get(Constant.CONTACT_NAME));
+        map = data.get(position);
+        author.setText(map.get(Constant.CONTACT_NAME));
+        message.setText(map.get(Constant.MESSAGE_TEXT));
 
-            listview.setVerticalFadingEdgeEnabled(false);
-            listview.setVerticalScrollBarEnabled(true);
+        listview.setVerticalFadingEdgeEnabled(false);
+        listview.setVerticalScrollBarEnabled(true);
 
 
         return vi;

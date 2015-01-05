@@ -1,4 +1,4 @@
-package pl.karbar.smskompresor.activity;
+package pl.karbar.smskompresor.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,10 +13,10 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import pl.karbar.smskompresor.Adapter.ContactAdapter;
+import pl.karbar.smskompresor.DbPackage.DbMethods;
 import pl.karbar.smskompresor.R;
-import pl.karbar.smskompresor.util.Constant;
-import pl.karbar.smskompresor.util.ContactAdapter;
-import pl.karbar.smskompresor.util.Mock;
+import pl.karbar.smskompresor.Utils.Constant;
 
 
 public class MainActivity extends Activity {
@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
     private ArrayList<HashMap<String, String>> contactsList;
     private Button newMessageButton;
     private ListView contactsListView;
-    private Mock mock;
+    private DbMethods db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         newMessageButton = (Button)findViewById(R.id.newMessageButton);
         newMessageButton.setOnClickListener(newMessage);
-        mock = new Mock();
+        db = new DbMethods();
         initializeContacts();
 
 
@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
     }
     private void initializeContacts(){
         contactsListView = (ListView) findViewById(R.id.contactNamesList);
-        contactsList = mock.getContactList();
+        contactsList = db.getContactList();
 
         contactAdapter = new ContactAdapter(this, contactsList, contactsListView);
         contactsListView.setAdapter(contactAdapter);

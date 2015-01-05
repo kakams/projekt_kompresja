@@ -1,4 +1,4 @@
-package pl.karbar.smskompresor.activity;
+package pl.karbar.smskompresor.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,10 +9,10 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import pl.karbar.smskompresor.Adapter.MessagesAdapter;
+import pl.karbar.smskompresor.DbPackage.DbMethods;
 import pl.karbar.smskompresor.R;
-import pl.karbar.smskompresor.util.Constant;
-import pl.karbar.smskompresor.util.MessagesAdapter;
-import pl.karbar.smskompresor.util.Mock;
+import pl.karbar.smskompresor.Utils.Constant;
 
 
 public class MessagesActivity extends ActionBarActivity {
@@ -21,14 +21,14 @@ public class MessagesActivity extends ActionBarActivity {
     private MessagesAdapter messagesAdapter;
     private ArrayList<HashMap<String, String>> conversation;
     private Button newMessageButton;
-    private Mock mock = new Mock();
+    private DbMethods db;
     String authorId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.messages_list);
-
+        db = new DbMethods();
         newMessage = (Button)findViewById(R.id.messagesButton);
 
         if (savedInstanceState == null) {
@@ -47,7 +47,7 @@ public class MessagesActivity extends ActionBarActivity {
     }
     private void initializeConversation(){
         messagesListView = (ListView) findViewById(R.id.messagesList);
-        conversation = mock.getConversation(authorId);
+        conversation = db.getConversation(authorId);
         messagesAdapter = new MessagesAdapter(this, conversation, messagesListView);
         messagesListView.setAdapter(messagesAdapter);
 

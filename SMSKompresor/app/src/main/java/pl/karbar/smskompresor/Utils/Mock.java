@@ -1,4 +1,4 @@
-package pl.karbar.smskompresor.util;
+package pl.karbar.smskompresor.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,8 +30,8 @@ public class Mock {
                 map2 = new HashMap<String, String>();
                 if (k % 2 == 0) {
                     map2.put(Constant.CONTACT_ID, Integer.toString(j));
-                    map2.put(Constant.CONTACT_NAME, getNameById(Integer.toString(j)));
-                    map2.put(Constant.CONTACT_PHONE, getPhoneById(Integer.toString(j)));
+                    map2.put(Constant.CONTACT_NAME, "Name"+j);
+                    map2.put(Constant.CONTACT_PHONE, Integer.toString(600700800+j));
                     map2.put(Constant.MESSAGE_TEXT, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum." + k);
                 } else {
                     map2.put(Constant.CONTACT_ID, "-1");
@@ -55,11 +55,5 @@ public class Mock {
 
         return conversation;
     }
-    public String getNameById(String id){
-        return "Name"+id;
-    }
 
-    public String getPhoneById(String id){
-        return Integer.toString(600700800+Integer.parseInt(id));
-    }
 }

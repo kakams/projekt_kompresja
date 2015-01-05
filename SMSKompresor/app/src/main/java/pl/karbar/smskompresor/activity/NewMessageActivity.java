@@ -1,4 +1,4 @@
-package pl.karbar.smskompresor.activity;
+package pl.karbar.smskompresor.Activity;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
