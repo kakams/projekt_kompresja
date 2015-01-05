@@ -1,0 +1,11 @@
+Do zrobienia jest jeszcze tak:
+-baza danych która pozwoli przechowywać konwersacje (i wyszukiwać konwersacje dla danego kontaktu - patrz niżej), dobrze by było jeśli by przechowywała też takie dane jak rozmiar wiadomości zwykłej i skompresowanej, żebyśmy mogli pokazać różnice
+-metody do zwracania konwersacji dla danego kontaktu i listy kontaktów w DbMethods (return ArrayList<HashMap<String, String>> - tylko tym razem, proszę, bierz klucze z Constant, zamiast robić swoje)
+-Kompresja wiadomości w SmsSender
+-Wysyłanie w bitach w SmsSender
+-Dekompresja w SmsListener
+
+
+Jak już to będzie to zrobie jakąś kosmetykę w wyglądzie i git.
+
+

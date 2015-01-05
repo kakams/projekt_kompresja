@@ -1,40 +1,42 @@
 package pl.karbar.smskompresor.Activity;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import pl.karbar.smskompresor.R;
+import pl.karbar.smskompresor.SmsService.SmsSender;
 
-public class NewMessageActivity extends ActionBarActivity {
-
+public class NewMessageActivity extends Activity {
+    Button sendMsg;
+    EditText number, content;
+    SmsSender smsSender;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_message);
+        smsSender = new SmsSender();
+        sendMsg = (Button)findViewById(R.id.sendMsgButton);
+        number =(EditText)findViewById(R.id.numberEditText);
+        content =(EditText)findViewById(R.id.messageEditText);
+        sendMsg.setOnClickListener(sendMsgOnClick);
     }
 
+    View.OnClickListener sendMsgOnClick = new View.OnClickListener() {
+         public void onClick(View v) {
+             smsSender = new SmsSender();
+             String phoneNumber, msg;
+             phoneNumber = number.getText().toString();
+             msg = content.getText().toString();
+             Log.d("kkams", phoneNumber + " " + msg);
+             if(phoneNumber!=null && !phoneNumber.equals("") && msg!=null) {
+                 smsSender.sendSMS(phoneNumber, msg);
+             }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_new_message, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
         }
-
-        return super.onOptionsItemSelected(item);
-    }
+    };
 }

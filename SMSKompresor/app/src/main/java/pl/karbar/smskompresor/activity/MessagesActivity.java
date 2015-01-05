@@ -1,8 +1,8 @@
 package pl.karbar.smskompresor.Activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -15,7 +15,7 @@ import pl.karbar.smskompresor.R;
 import pl.karbar.smskompresor.Utils.Constant;
 
 
-public class MessagesActivity extends ActionBarActivity {
+public class MessagesActivity extends Activity {
     Button newMessage;
     ListView messagesListView;
     private MessagesAdapter messagesAdapter;
@@ -52,4 +52,5 @@ public class MessagesActivity extends ActionBarActivity {
         messagesListView.setAdapter(messagesAdapter);
 
     }
+
 }
