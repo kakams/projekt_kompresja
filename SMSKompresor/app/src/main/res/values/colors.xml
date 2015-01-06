@@ -1,5 +1,14 @@
 <resources>
 
-    <color name="black_overlay">#66000000</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="blue">#0094e0</color>
+
+    <color name="background">#202020</color>
+    <color name="divider_color">#474747</color>
+    <color name="conversation_edit_text">#252525</color>
+
+
+
 
 </resources>

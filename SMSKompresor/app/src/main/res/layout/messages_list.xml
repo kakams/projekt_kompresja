@@ -2,6 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/background"
     >
 
 
@@ -17,28 +18,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/messagesList"
-            android:layout_above="@+id/messageEditText" />
+            android:layout_above="@+id/messageEditText"
+            android:dividerHeight="@dimen/divider_height"
+            android:divider="@drawable/list_divider" />
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="@dimen/conversation_edit_text_height"
             android:id="@+id/messageEditText"
             android:gravity="top"
             android:layout_above="@+id/messagesButton"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:background="#dddddd" />
+            android:background="@color/conversation_edit_text"
+            android:textColor="@color/white"
+            android:paddingLeft="@dimen/single_message_cont_padding_left_right"
+            android:paddingRight="@dimen/single_message_cont_padding_left_right"
+            android:paddingTop="@dimen/single_message_cont_padding_top"
+            android:paddingBottom="@dimen/single_message_cont_padding_top"/>
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Wyślij"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/send_message"
             android:id="@+id/messagesButton"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignRight="@+id/messageEditText"
-            android:layout_alignEnd="@+id/messageEditText" />
+            android:layout_alignEnd="@+id/messageEditText"
+            android:textColor="@color/white"
+            android:background="@color/blue"
+            android:layout_margin="@dimen/zero"
+            android:padding="@dimen/zero"/>
 
     </RelativeLayout>
 

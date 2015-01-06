@@ -2,19 +2,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/background"
     >
 
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nowa wiadomość"
-        android:id="@+id/newMessageButton"/>
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/contactNamesList"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:dividerHeight="1px"
+        android:divider="@drawable/list_divider"
+        />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:text="Nowa wiadomość"
+        android:id="@+id/newMessageButton"
+        android:background="@color/blue"
+        android:textColor="@color/white"/>
 </LinearLayout>

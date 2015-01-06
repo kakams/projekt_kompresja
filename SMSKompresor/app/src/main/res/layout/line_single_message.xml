@@ -9,22 +9,22 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="#eeeeee">
+        android:layout_marginLeft="@dimen/line_single_message_margin"
+        android:layout_marginRight="@dimen/line_single_message_margin"
+        android:layout_marginTop="@dimen/line_single_message_margin"
+        android:layout_marginBottom="@dimen/line_single_message_margin">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="@dimen/single_message_author_height"
             android:text=""
             android:id="@+id/messageAuthor"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"
-            android:textSize="20dp"
+            android:layout_marginLeft="@dimen/single_message_author_margin"
+            android:layout_marginRight="@dimen/single_message_author_margin"
+            android:layout_marginTop="@dimen/single_message_author_margin"
+            android:layout_marginBottom="@dimen/single_message_author_margin_bottom"
+            android:textSize="@dimen/single_message_author_font"
+            android:textColor="@color/white"
             />
 
         <TextView
@@ -33,9 +33,10 @@
             android:text=""
             android:id="@+id/messageText"
             android:gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginLeft="@dimen/single_message_author_margin_bottom"
+            android:layout_marginRight="@dimen/single_message_author_margin_bottom"
+            android:layout_marginBottom="@dimen/single_message_author_margin_bottom"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 </RelativeLayout>
