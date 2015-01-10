@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         newMessageButton = (Button)findViewById(R.id.newMessageButton);
         newMessageButton.setOnClickListener(newMessage);
-        db = new DbMethods();
+        db = new DbMethods(getApplicationContext());
         initializeContacts();
 
 

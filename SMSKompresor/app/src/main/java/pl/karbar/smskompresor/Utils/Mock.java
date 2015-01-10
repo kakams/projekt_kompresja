@@ -56,4 +56,12 @@ public class Mock {
         return conversation;
     }
 
+    public String convertStringToByte(String message){
+        return "00010101010101011101010010101";
+    }
+
+    public String convertByteToString(String bytes){
+        return "Tr: " + bytes;
+    }
+
 }

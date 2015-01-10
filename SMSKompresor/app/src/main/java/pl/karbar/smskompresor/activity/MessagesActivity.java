@@ -28,7 +28,7 @@ public class MessagesActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.messages_list);
-        db = new DbMethods();
+        db = new DbMethods(getApplicationContext());
         newMessage = (Button)findViewById(R.id.messagesButton);
 
         if (savedInstanceState == null) {
@@ -37,6 +37,7 @@ public class MessagesActivity extends Activity {
                 authorId= null;
             } else {
                 authorId= i.getStringExtra(Constant.CONTACT_ID);
+                System.out.println("Id usera to: " + authorId);
             }
         } else {
             authorId= (String) savedInstanceState.getSerializable("-8");
@@ -47,6 +48,7 @@ public class MessagesActivity extends Activity {
     }
     private void initializeConversation(){
         messagesListView = (ListView) findViewById(R.id.messagesList);
+        System.out.println("Id usera to: " + authorId);
         conversation = db.getConversation(authorId);
         messagesAdapter = new MessagesAdapter(this, conversation, messagesListView);
         messagesListView.setAdapter(messagesAdapter);

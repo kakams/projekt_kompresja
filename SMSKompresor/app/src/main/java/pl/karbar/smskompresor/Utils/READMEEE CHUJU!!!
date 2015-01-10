@@ -8,4 +8,11 @@ Do zrobienia jest jeszcze tak:
 
 Jak już to będzie to zrobie jakąś kosmetykę w wyglądzie i git.
 
+Dzuby:
+1. Baza już jest, poza rozmierem, jak go liczyć?
+2. Konwersacja jak i lista kontaktów jest zwracana. Użyłem Constantów :D ALe pytanko jedno: CONTACT_ID to nasze sztuczne id, czy jakos powiązane z kontaktem?
+Bo zrobiłem coś takiego jak conversation_id, mam nadzieję, że o to chodziło.
+3. Kompresja i dekompresja do zrobienia.
+4. Wysylanie w bitach do zrobienia.
+
 
