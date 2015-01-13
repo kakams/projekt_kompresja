@@ -53,7 +53,7 @@ public class NewMessageActivity extends Activity {
         msg = content.getText().toString();
         Log.d("kkams", phoneNumber + " " + msg);
         if(phoneNumber!=null && !phoneNumber.equals("") && msg!=null) {
-            smsSender.sendSMS(phoneNumber, msg);
+            smsSender.sendSMS(phoneNumber, msg, getApplicationContext());
         }
     }
 }
