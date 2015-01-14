@@ -8,6 +8,9 @@ import android.telephony.SmsManager;
 import java.util.Date;
 
 import pl.karbar.smskompresor.DbPackage.Database;
+import pl.karbar.smskompresor.Utils.Bytes;
+import pl.karbar.smskompresor.Utils.Compress;
+import pl.karbar.smskompresor.Utils.Constant;
 import pl.karbar.smskompresor.Utils.Mock;
 
 /**
@@ -35,16 +38,22 @@ public class SmsSender {
         String msg_byte = mock.convertStringToByte(msg);//do zmiany po implementacji
         String lenght_byte = "" + msg_byte.length();
 
+        Compress compress = new Compress();
+
+        Bytes b = compress.convertStringToMorse(msg);
+
         //TODO Kompresja wiadomości
 
         //TODO Wysłanie skompresowanej wiadomości
         //TODO jeśli sukces, to dodanie wiadomości do bazy
         boolean success = true;
-        smsManager.sendTextMessage(number, null, msg, null, null);
+        //smsManager.sendTextMessage(number, null, msg, null, null);
+        smsManager.sendDataMessage(number, null, Constant.SMS_PORT, b.bytes, null, null );
+        //smsManager.sendDataMessage();
         if(success){
                 db = new Database (c);
                 db.open();
-                db.insertMessage(number,name,msg,msg_byte,nowString,"0",lenght,lenght_byte);
+                db.insertMessage(number,name,msg,b.messageInBytes,nowString,"0",lenght,""+b.lenghtBytes);
         }
         return true;//true - udało się wysłać
 
