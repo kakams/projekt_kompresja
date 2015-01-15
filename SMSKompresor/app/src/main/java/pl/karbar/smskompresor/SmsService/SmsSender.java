@@ -5,6 +5,7 @@ import android.text.format.Time;
 import android.util.Log;
 import android.telephony.SmsManager;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import pl.karbar.smskompresor.DbPackage.Database;
@@ -48,7 +49,14 @@ public class SmsSender {
         //TODO jeśli sukces, to dodanie wiadomości do bazy
         boolean success = true;
         //smsManager.sendTextMessage(number, null, msg, null, null);
-        smsManager.sendDataMessage(number, null, Constant.SMS_PORT, b.bytes, null, null );
+        ArrayList<byte[]> list = b.bytesArray;
+
+        for(byte[] bytes :  list){
+            smsManager.sendDataMessage(number, null, Constant.SMS_PORT, bytes, null, null );
+        }
+
+
+
         //smsManager.sendDataMessage();
         if(success){
                 db = new Database (c);
