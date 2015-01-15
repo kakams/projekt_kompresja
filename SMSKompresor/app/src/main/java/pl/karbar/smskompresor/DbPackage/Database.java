@@ -541,6 +541,8 @@ public class Database {
                     String text = cursor.getString(MESSAGES_CONTENT_COLUMN);
                     String send_or_receive = cursor.getString(MESSAGES_SEND_OR_RECEIVE_COLUMN);
                     String date = cursor.getString(MESSAGES_TIME_COLUMN);
+                    String len = cursor.getString(MESSAGES_CONTENT_SIZE_COLUMN);
+                    String len_byte = cursor.getString(MESSAGES_CONTENT_BYTE_SIZE_COLUMN);
 
                     Date d = new Date(Long.valueOf(date));
                     String date_formatted = new SimpleDateFormat("yyyy-MM-dd HH:mm:SS").format(d);
@@ -548,6 +550,8 @@ public class Database {
                     map = new HashMap<String, String>();
                     map.put(Constant.MESSAGE_TEXT, text);
                     map.put(Constant.MESSAGE_DATE, date);
+                    map.put(Constant.MESSAGE_LENGTH, len);
+                    map.put(Constant.MESSAGE_LENGTH_BYTES, len_byte);
                     map.put(Constant.MESSAGE_DATE_FORMATTED, date_formatted);
                     if(send_or_receive.equals("0")) {//0 - send, 1 - receive
                         map.put(Constant.CONTACT_NAME, "Ja");

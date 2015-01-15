@@ -311,7 +311,7 @@ public class Compress {
         //tak zaczyna sie wiadomosc
         bytes[0]=new Byte(Constant.MESSAGE_START);
         String messageInBytes = "" + bytes[0];
-        Bytes bytesObj = new Bytes(messageInBytes, lenB, lenM);
+        Bytes bytesObj = new Bytes(messageInBytes, 0, lenM);
         boolean tetet = true;
         for(int i =0, j=1; i<lenB-1; i=i+2){
             System.out.println("i " + i + " j " + j + " chaar[i] " + chaars[i]+ " chaar[i+1] " + chaars[i+1]);
@@ -356,6 +356,7 @@ public class Compress {
             if(j >= 131){
                 tetet = false;
                 bytesObj.addbytes(bytes);
+                bytesObj.lenghtBytes = j;
                 //sprawdzenie, czy i+2 nie jest wieksze od lenght
                 int start = i + 2;
                 if(start>lenB)
@@ -367,6 +368,7 @@ public class Compress {
                     bytesObj.addbytes(b);
                 }
                 bytesObj.messageInBytes = messageInBytes + byyt.messageInBytes;
+                bytesObj.lenghtBytes = bytesObj.lenghtBytes + byyt.lenghtBytes;
                 break;
             }
 

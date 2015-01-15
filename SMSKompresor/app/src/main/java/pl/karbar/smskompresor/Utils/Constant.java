@@ -16,4 +16,6 @@ public class Constant {
     public static final String MESSAGE_DATE_FORMATTED = "message_date_formatted"; //sformatowana data w postaci yyyy-MM-dd HH:mm:SS
     public static final byte MESSAGE_START = 127; //od tego zaczyna się każda wiadomość
     public static final short SMS_PORT = 8901; //port na któym wysyłamy sms
+    public static final String MESSAGE_LENGTH = "message_length"; // dlugosc normalnej wiadomosci
+    public static final String MESSAGE_LENGTH_BYTES = "message_length_bytes"; // dlugosc skompresowanej wiadomosci
 }
